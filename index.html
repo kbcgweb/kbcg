@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>우리교회 | Korean Church</title>
+  <meta name="description" content="우리교회 홈페이지 — 교회 안내, 주보, 설교 다시 듣기, 헌금 안내" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f172a;          /* slate-900 */
+      --bg-soft:#111827;     /* gray-900 */
+      --panel:#0b1220;       /* deep blue */
+      --text:#e5e7eb;        /* gray-200 */
+      --muted:#94a3b8;       /* slate-400 */
+      --brand:#60a5fa;       /* sky-400 */
+      --brand-2:#34d399;     /* emerald-400 */
+      --accent:#fbbf24;      /* amber-400 */
+      --card:#0b1220;
+      --radius:18px;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --max:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:linear-gradient(180deg,var(--bg) 0%, #0a1020 60%, #05070f 100%);color:var(--text);font-family: 'Pretendard', system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", sans-serif;line-height:1.6}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{opacity:.9}
+    .container{max-width:var(--max);margin:0 auto;padding:0 24px}
+    header.nav{position:sticky;top:0;z-index:50;background:rgba(5,7,15,.7);backdrop-filter: blur(10px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand .logo{width:34px;height:34px;border-radius:10px;background:radial-gradient(circle at 30% 30%, var(--brand), transparent 60%), radial-gradient(circle at 70% 70%, var(--brand-2), transparent 60%), linear-gradient(135deg, #0c1b3a, #0a1226);box-shadow:var(--shadow)}
+    .brand b{font-weight:700;letter-spacing:.2px}
+    nav ul{display:flex;gap:14px;list-style:none;padding:0;margin:0;flex-wrap:wrap}
+    nav a{display:inline-block;padding:8px 12px;border-radius:999px;color:var(--text)}
+    nav a:hover, nav a.active{background:rgba(255,255,255,.08)}
+
+    /* Hero */
+    .hero{position:relative;overflow:hidden}
+    .hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:26px;align-items:center;padding:64px 0}
+    .badge{display:inline-flex;gap:8px;align-items:center;border:1px solid rgba(255,255,255,.14);padding:6px 10px;border-radius:999px;color:var(--muted);font-size:12px}
+    h1{font-size:40px;line-height:1.2;margin:14px 0 8px}
+    .subtitle{color:var(--muted);font-size:16px}
+    .hero-card{background:linear-gradient(180deg,#0d1730 0%, #0a1226 100%);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+    .hero-card .grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .hero-card .cell{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:12px;text-align:center}
+    .hero-verse{font-style:italic;color:#c7d2fe}
+
+    /* Sections */
+    section{padding:56px 0;border-top:1px solid rgba(255,255,255,.06)}
+    section h2{font-size:28px;margin:0 0 16px}
+    .kicker{color:var(--brand-2);font-weight:600;font-size:13px;letter-spacing:.4px;text-transform:uppercase}
+    .panel{background:linear-gradient(180deg,#0c1730 0%, #0a1226 100%);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .panel.pad{padding:18px}
+
+    /* 안내: subgrid */
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    @media (max-width: 900px){
+      .hero .wrap{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width: 640px){
+      .grid-3{grid-template-columns:1fr}
+    }
+
+    table{width:100%;border-collapse:collapse}
+    th, td{padding:10px;border-bottom:1px dashed rgba(255,255,255,.08);text-align:left}
+    th{color:var(--muted);font-weight:600}
+
+    /* Cards */
+    .card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:16px;box-shadow:var(--shadow)}
+    .card h3{margin:0 0 6px;font-size:18px}
+    .meta{font-size:13px;color:var(--muted)}
+
+    /* Tabs (for 안내 subsections) */
+    .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+    .tabs a{padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.12);color:var(--text)}
+    .tabs a:hover{background:rgba(255,255,255,.06)}
+
+    /* Footer */
+    footer{padding:28px 0;color:var(--muted)}
+    .fine{font-size:12px;color:var(--muted)}
+
+    /* Utility */
+    .center{display:flex;align-items:center;justify-content:center}
+    .right{display:flex;justify-content:flex-end}
+    .mb-8{margin-bottom:8px}
+    .mb-16{margin-bottom:16px}
+    .mb-24{margin-bottom:24px}
+    .mt-8{margin-top:8px}
+    .chip{display:inline-flex;align-items:center;gap:8px;background:rgba(99,102,241,.15);border:1px solid rgba(99,102,241,.35);color:#c7d2fe;padding:6px 10px;border-radius:999px;font-size:12px}
+    .btn{display:inline-flex;gap:8px;align-items:center;background:linear-gradient(180deg, #2563eb, #1d4ed8);color:white;padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.18)}
+    .btn.alt{background:linear-gradient(180deg,#059669,#047857)}
+    .muted{color:var(--muted)}
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 14px}
+  </style>
+</head>
+<body>
+  <!-- Top Navigation -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#home" aria-label="우리교회 홈">
+        <div class="logo" aria-hidden="true"></div>
+        <b>우리교회</b>
+      </a>
+      <nav aria-label="주 메뉴">
+        <ul>
+          <li><a href="#about">교회 안내</a></li>
+          <li><a href="#bulletin">주보</a></li>
+          <li><a href="#sermons">설교 다시 듣기</a></li>
+          <li><a href="#giving">헌금</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main id="home" class="hero">
+    <div class="container wrap">
+      <div>
+        <span class="badge">하나님을 예배하고 이웃을 섬기는 교회</span>
+        <h1>우리교회에 오신 것을 환영합니다</h1>
+        <p class="subtitle">주일예배 • 소그룹 • 다음세대 • 지역선교</p>
+        <div class="mt-8" role="group" aria-label="바로가기 버튼">
+          <a class="btn" href="#about">예배시간 보기</a>
+          <a class="btn alt" href="#giving" style="margin-left:8px">헌금 안내</a>
+        </div>
+        <p class="hero-verse mt-8">“여호와께 감사하라 그는 선하시며 그 인자하심이 영원함이로다.” (시편 107:1)</p>
+      </div>
+      <div class="hero-card">
+        <div class="grid">
+          <div class="cell">
+            <div class="meta">주일예배</div>
+            <div><b>주일 오전 11:00</b></div>
+            <div class="muted">본당</div>
+          </div>
+          <div class="cell">
+            <div class="meta">새벽/수요기도</div>
+            <div><b>수요일 저녁 7:30</b></div>
+            <div class="muted">온라인/본당</div>
+          </div>
+          <div class="cell">
+            <div class="meta">주일학교</div>
+            <div><b>주일 오전 11:00</b></div>
+            <div class="muted">교육관</div>
+          </div>
+          <div class="cell">
+            <div class="meta">담임목사</div>
+            <div><b>홍길동 목사</b></div>
+            <div class="muted">pastor@example.org</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- 교회 안내 -->
+  <section id="about">
+    <div class="container">
+      <div class="kicker">Church Info</div>
+      <h2>교회 안내</h2>
+      <div class="tabs" aria-label="교회 안내 하위 메뉴">
+        <a href="#times">예배시간</a>
+        <a href="#location">교회 위치</a>
+        <a href="#history">연혁</a>
+        <a href="#bylaws">정관</a>
+      </div>
+
+      <div class="grid-2">
+        <!-- 예배시간 -->
+        <div id="times" class="panel pad" aria-labelledby="times-h">
+          <h3 id="times-h">예배시간</h3>
+          <table>
+            <thead>
+              <tr><th>모임</th><th>시간</th><th>장소</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>주일예배</td><td>주일 오전 11:00</td><td>본당</td></tr>
+              <tr><td>수요예배</td><td>수요일 저녁 7:30</td><td>본당/온라인</td></tr>
+              <tr><td>새벽기도</td><td>화–금 오전 6:00</td><td>본당</td></tr>
+              <tr><td>주일학교</td><td>주일 오전 11:00</td><td>교육관</td></tr>
+              <tr><td>청년부</td><td>주일 오후 1:30</td><td>카페</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 교회 위치 -->
+        <div id="location" class="panel pad" aria-labelledby="location-h">
+          <h3 id="location-h">교회 위치</h3>
+          <p class="mb-8">123 Church St, City, ST 12345</p>
+          <div class="card">
+            <p class="mb-8">아래 지도를 통해 길찾기를 이용하실 수 있습니다.</p>
+            <div class="center">
+              <iframe title="우리교회 위치" width="100%" height="260" style="border:0;border-radius:12px" loading="lazy" allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d0!2d-81.3792365!3d29.6516344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z7JWM7J2067OR!5e0!3m2!1sko!2sus!4v1700000000000"></iframe>
+            </div>
+            <p class="meta mt-8">주차: 교회 앞/뒷마당 이용 가능</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 연혁 / 정관 -->
+      <div class="grid-2 mt-8">
+        <div id="history" class="panel pad" aria-labelledby="history-h">
+          <h3 id="history-h">연혁</h3>
+          <ul>
+            <li><b>2025</b> — 교육관 리모델링 및 다음세대 사역 확장</li>
+            <li><b>2023</b> — 지역선교 시작, 푸드드라이브 정례화</li>
+            <li><b>2020</b> — 온라인 예배 및 미디어 사역 개시</li>
+            <li><b>2015</b> — 교회 창립</li>
+          </ul>
+        </div>
+        <div id="bylaws" class="panel pad" aria-labelledby="bylaws-h">
+          <h3 id="bylaws-h">정관</h3>
+          <p class="mb-8">교회의 조직과 운영 원칙을 담은 정관입니다. PDF 파일을 다운로드해 열람하실 수 있습니다.</p>
+          <a class="btn" href="#" onclick="alert('정관 PDF를 연결해 주세요. /bylaws.pdf 등');return false;">정관 PDF 내려받기</a>
+          <p class="fine mt-8">* 실제 파일 경로로 링크를 교체해 주세요.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 주보 -->
+  <section id="bulletin">
+    <div class="container">
+      <div class="kicker">Weekly Bulletin</div>
+      <h2>주보</h2>
+      <p class="muted mb-16">최근 주보를 PDF로 제공합니다. 파일을 클릭하시면 열람/다운로드하실 수 있습니다.</p>
+      <div class="grid-3">
+        <!-- 반복 카드 예시: 최신 순 -->
+        <article class="card">
+          <h3>주보 — 2025-10-19</h3>
+          <p class="meta">Ordinary Time • 시편 107편</p>
+          <a class="btn mt-8" href="#" onclick="alert('주보 PDF를 연결해 주세요. /bulletins/2025-10-19.pdf');return false;">PDF 보기</a>
+        </article>
+        <article class="card">
+          <h3>주보 — 2025-10-12</h3>
+          <p class="meta">추수감사절 연합예배 안내</p>
+          <a class="btn mt-8" href="#" onclick="alert('PDF 링크로 교체');return false;">PDF 보기</a>
+        </article>
+        <article class="card">
+          <h3>주보 — 2025-10-05</h3>
+          <p class="meta">선교 바자회 예고</p>
+          <a class="btn mt-8" href="#" onclick="alert('PDF 링크로 교체');return false;">PDF 보기</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 설교 다시 듣기 -->
+  <section id="sermons">
+    <div class="container">
+      <div class="kicker">Sermons</div>
+      <h2>설교 다시 듣기</h2>
+      <div class="grid-2">
+        <article class="card">
+          <h3>감사의 사람 (시편 107:1) — 2025-10-19</h3>
+          <audio controls style="width:100%">
+            <source src="/sermons/2025-10-19.mp3" type="audio/mpeg" />
+            브라우저가 오디오 재생을 지원하지 않습니다.
+          </audio>
+          <p class="meta">설교: 홍길동 목사 • 길이: 32:14</p>
+        </article>
+        <article class="card">
+          <h3>믿음의 눈으로 (히브리서 11:1) — 2025-10-12</h3>
+          <div style="position:relative;padding-top:56.25%">
+            <iframe title="YouTube sermon" src="https://www.youtube.com/embed/VIDEO_ID" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:12px"></iframe>
+          </div>
+          <p class="fine mt-8">* 유튜브 영상 ID로 교체해 주세요.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 헌금 (Zelle) -->
+  <section id="giving">
+    <div class="container">
+      <div class="kicker">Giving</div>
+      <h2>헌금</h2>
+      <div class="grid-2">
+        <div class="panel pad">
+          <h3>온라인 헌금 (Zelle)</h3>
+          <p>우리교회는 Zelle®을 통해 안전하게 온라인 헌금을 받습니다. 아래 안내에 따라 보내주세요.</p>
+          <ul>
+            <li><b>수취인 이름</b>: Our Church</li>
+            <li><b>Zelle 아이디 (이메일)</b>: <span class="mono">give@ourchurch.org</span></li>
+            <li><b>메모</b>: <span class="mono">Tithe / Thanksgiving / Mission / Building</span> 중 선택 (이름 포함)</li>
+          </ul>
+          <div class="card">
+            <p class="mb-8">은행 앱 또는 Zelle 앱을 열고, 위의 이메일로 송금하세요.</p>
+            <ol class="muted">
+              <li>Pay &rarr; Send via Zelle 선택</li>
+              <li>받는 사람 이메일 입력: <span class="mono">give@ourchurch.org</span></li>
+              <li>금액과 <b>메모</b> 입력 후 전송</li>
+            </ol>
+          </div>
+          <p class="fine mt-8">* 영수증이 필요하신 분은 사무실에 문의해 주세요: <a href="mailto:office@ourchurch.org">office@ourchurch.org</a></p>
+        </div>
+        <div class="panel pad">
+          <h3>오프라인 헌금</h3>
+          <p>주일예배 시 헌금함에 봉헌하거나, 아래 주소로 우편 발송 가능합니다.</p>
+          <p class="mb-8">Attn: Treasurer<br/>Our Church<br/>123 Church St, City, ST 12345</p>
+          <div class="chip">세금공제 가능 영수증 발급</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="grid-3">
+        <div>
+          <b>우리교회</b>
+          <p class="muted">123 Church St, City, ST 12345<br/>Tel: (555) 123-4567<br/>Email: <a href="mailto:info@ourchurch.org">info@ourchurch.org</a></p>
+        </div>
+        <div>
+          <b>예배 안내</b>
+          <p class="muted">주일 오전 11:00 (본당)<br/>수요일 저녁 7:30 (본당/온라인)</p>
+        </div>
+        <div>
+          <b>바로가기</b>
+          <p><a href="#about">교회 안내</a> • <a href="#bulletin">주보</a> • <a href="#sermons">설교</a> • <a href="#giving">헌금</a></p>
+        </div>
+      </div>
+      <p class="fine">© <span id="y"></span> 우리교회. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Set current year in footer
+    document.getElementById('y').textContent = new Date().getFullYear();
+    // Basic active link handling on scroll
+    const sections = ['about','bulletin','sermons','giving'];
+    const navLinks = Array.from(document.querySelectorAll('header.nav nav a'));
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          navLinks.forEach(a=>a.classList.remove('active'));
+          const id = e.target.getAttribute('id');
+          const match = navLinks.find(a=>a.getAttribute('href')==='#'+id);
+          if(match) match.classList.add('active');
+        }
+      })
+    }, { root:null, threshold:.15 });
+    sections.forEach(id=>{const el=document.getElementById(id); if(el) io.observe(el)});
+  </script>
+</body>
+</html>
+
