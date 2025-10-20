@@ -10,49 +10,51 @@
   <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0f172a;          /* slate-900 */
-      --bg-soft:#111827;     /* gray-900 */
-      --panel:#0b1220;       /* deep blue */
-      --text:#e5e7eb;        /* gray-200 */
-      --muted:#94a3b8;       /* slate-400 */
-      --brand:#60a5fa;       /* sky-400 */
-      --brand-2:#34d399;     /* emerald-400 */
-      --accent:#fbbf24;      /* amber-400 */
-      --card:#0b1220;
+      --bg:#f8fafc;          /* slate-50 */
+      --bg-soft:#f1f5f9;     /* slate-100 */
+      --panel:#ffffff;       /* white */
+      --text:#0f172a;        /* slate-900 */
+      --muted:#475569;       /* slate-600 */
+      --brand:#2563eb;       /* blue-600 */
+      --brand-2:#059669;     /* emerald-600 */
+      --accent:#f59e0b;      /* amber-500 */
+      --card:#ffffff;
       --radius:18px;
-      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --shadow:0 8px 24px rgba(2,6,23,.08);
       --max:1100px;
+      --border: rgba(2,6,23,.08);
+      --hover: rgba(2,6,23,.06);
     }
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:linear-gradient(180deg,var(--bg) 0%, #0a1020 60%, #05070f 100%);color:var(--text);font-family: 'Pretendard', system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", sans-serif;line-height:1.6}
+    html,body{margin:0;padding:0;background:linear-gradient(180deg,var(--bg) 0%, #fff 60%, #f8fafc 100%);color:var(--text);font-family: 'Pretendard', system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", sans-serif;line-height:1.6}
     a{color:var(--brand);text-decoration:none}
     a:hover{opacity:.9}
     .container{max-width:var(--max);margin:0 auto;padding:0 24px}
-    header.nav{position:sticky;top:0;z-index:50;background:rgba(5,7,15,.7);backdrop-filter: blur(10px);border-bottom:1px solid rgba(255,255,255,.06)}
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    header.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter: blur(8px);border-bottom:1px solid var(--border)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 24px}
     .brand{display:flex;gap:12px;align-items:center}
-    .brand .logo{width:34px;height:34px;border-radius:10px;background:radial-gradient(circle at 30% 30%, var(--brand), transparent 60%), radial-gradient(circle at 70% 70%, var(--brand-2), transparent 60%), linear-gradient(135deg, #0c1b3a, #0a1226);box-shadow:var(--shadow)}
+    .brand .logo{width:34px;height:34px;border-radius:10px;background:radial-gradient(circle at 30% 30%, var(--brand), transparent 60%), radial-gradient(circle at 70% 70%, var(--brand-2), transparent 60%), linear-gradient(135deg, #dbeafe, #dcfce7);box-shadow:var(--shadow)}
     .brand b{font-weight:700;letter-spacing:.2px}
-    nav ul{display:flex;gap:14px;list-style:none;padding:0;margin:0;flex-wrap:wrap}
+    nav ul{display:flex;gap:14px;list-style:none;padding:0 24px;margin:0;flex-wrap:wrap}
     nav a{display:inline-block;padding:8px 12px;border-radius:999px;color:var(--text)}
-    nav a:hover, nav a.active{background:rgba(255,255,255,.08)}
+    nav a:hover, nav a.active{background:var(--hover)}
 
     /* Hero */
     .hero{position:relative;overflow:hidden}
-    .hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:26px;align-items:center;padding:64px 0}
-    .badge{display:inline-flex;gap:8px;align-items:center;border:1px solid rgba(255,255,255,.14);padding:6px 10px;border-radius:999px;color:var(--muted);font-size:12px}
+    .hero .wrap{display:grid;grid-template-columns:1.2fr .9fr;gap:26px;align-items:center;padding:24px 24px}
+    .badge{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--border);padding:6px 10px;border-radius:999px;color:var(--muted);font-size:16px;background:#fff}
     h1{font-size:40px;line-height:1.2;margin:14px 0 8px}
     .subtitle{color:var(--muted);font-size:16px}
-    .hero-card{background:linear-gradient(180deg,#0d1730 0%, #0a1226 100%);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+    .hero-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
     .hero-card .grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-    .hero-card .cell{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:12px;text-align:center}
-    .hero-verse{font-style:italic;color:#c7d2fe}
+    .hero-card .cell{background:#f8fafc;border:1px solid var(--border);border-radius:14px;padding:12px;text-align:center}
+    .hero-verse{font-style:italic;color:#4338ca;font-size:14px} /* indigo-700 */
 
     /* Sections */
-    section{padding:56px 0;border-top:1px solid rgba(255,255,255,.06)}
+    section{padding:56px 0;border-top:1px solid var(--border)}
     section h2{font-size:28px;margin:0 0 16px}
     .kicker{color:var(--brand-2);font-weight:600;font-size:13px;letter-spacing:.4px;text-transform:uppercase}
-    .panel{background:linear-gradient(180deg,#0c1730 0%, #0a1226 100%);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}
     .panel.pad{padding:18px}
 
     /* 안내: subgrid */
@@ -67,22 +69,22 @@
       .grid-3{grid-template-columns:1fr}
     }
 
-    table{width:100%;border-collapse:collapse}
-    th, td{padding:10px;border-bottom:1px dashed rgba(255,255,255,.08);text-align:left}
-    th{color:var(--muted);font-weight:600}
+    table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden}
+    th, td{padding:10px;border-bottom:1px dashed var(--border);text-align:left}
+    th{color:var(--muted);font-weight:600;background:#f8fafc}
 
     /* Cards */
-    .card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:16px;box-shadow:var(--shadow)}
+    .card{background:#ffffff;border:1px solid var(--border);border-radius:16px;padding:16px;box-shadow:var(--shadow)}
     .card h3{margin:0 0 6px;font-size:18px}
     .meta{font-size:13px;color:var(--muted)}
 
     /* Tabs (for 안내 subsections) */
     .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
-    .tabs a{padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.12);color:var(--text)}
-    .tabs a:hover{background:rgba(255,255,255,.06)}
+    .tabs a{padding:6px 10px;border-radius:999px;border:1px solid var(--border);color:var(--text);background:#fff}
+    .tabs a:hover{background:#f8fafc}
 
     /* Footer */
-    footer{padding:28px 0;color:var(--muted)}
+    footer{padding:28px 0;color:var(--muted);background:#ffffff;border-top:1px solid var(--border)}
     .fine{font-size:12px;color:var(--muted)}
 
     /* Utility */
@@ -92,23 +94,122 @@
     .mb-16{margin-bottom:16px}
     .mb-24{margin-bottom:24px}
     .mt-8{margin-top:8px}
-    .chip{display:inline-flex;align-items:center;gap:8px;background:rgba(99,102,241,.15);border:1px solid rgba(99,102,241,.35);color:#c7d2fe;padding:6px 10px;border-radius:999px;font-size:12px}
-    .btn{display:inline-flex;gap:8px;align-items:center;background:linear-gradient(180deg, #2563eb, #1d4ed8);color:white;padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.18)}
-    .btn.alt{background:linear-gradient(180deg,#059669,#047857)}
+    .chip{display:inline-flex;align-items:center;gap:8px;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.2);color:#1e40af;padding:6px 10px;border-radius:999px;font-size:12px}
+    <!-- .btn{display:inline-flex;gap:8px;align-items:center;background:linear-gradient(180deg, #3b82f6, #2563eb);color:white;padding:10px 14px;border-radius:12px;border:1px solid rgba(2,6,23,.12);box-shadow:0 2px 0 rgba(0,0,0,.05)} -->
+    <!-- .btn.alt{background:linear-gradient(180deg,#10b981,#059669)} -->
     .muted{color:var(--muted)}
     .mono{font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 14px}
+    .ybtn {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      background: linear-gradient(180deg, #ff0000, #cc0000);
+      color: white;
+      padding: 10px 18px;
+      border-radius: 12px;
+      border: none;
+      font-weight: 600;
+      box-shadow: 0 3px 0 rgba(0, 0, 0, 0.15);
+      text-decoration: none;
+      transition: all 0.2s ease-in-out;
+    }
+    
+    .ybtn:hover {
+      background: linear-gradient(180deg, #e60000, #b80000);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+    
+    .ybtn:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+    }
+    .btn {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      background: linear-gradient(180deg, #3b82f6, #1e40af); /* richer blue */
+      color: white;
+      padding: 10px 18px;
+      border-radius: 12px;
+      border: none;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 3px 0 rgba(0, 0, 0, 0.15);
+      transition: all 0.2s ease-in-out;
+    }
+    
+    .btn:hover {
+      background: linear-gradient(180deg, #2563eb, #1d4ed8); /* brighter top */
+      transform: translateY(-2px);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+    
+    .btn:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+    }
+    .greetings-section {
+      padding: 64px 0;
+    }
+    
+    .greetings-section .wrap {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      align-items: center;
+      gap: 40px;
+    }
+    
+    .pastor-photo img {
+      width: 100%;
+      max-width: 320px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    .greetings-text h2 {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+    
+    .greetings-text p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #334155;
+      margin-bottom: 16px;
+    }
+    
+    .greetings-text .signature {
+      font-weight: bold;
+      color: #1e3a8a;
+      margin-top: 24px;
+      font-size: 1.1rem;
+    }
+    
+    /* 📱 Responsive */
+    @media (max-width: 800px) {
+      .greetings-section .wrap {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .pastor-photo img {
+        margin: 0 auto;
+      }
+    }
   </style>
+  <link rel="icon" type="image/png" sizes="32x32" href="KBCG_logo_notext.png" />
 </head>
 <body>
   <!-- Top Navigation -->
   <header class="nav">
     <div class="container nav-inner">
-      <a class="brand" href="#home" aria-label="우리교회 홈">
-        <div class="logo" aria-hidden="true"></div>
-        <b>우리교회</b>
+      <a class="brand" href="#home" aria-label="게인스빌한인교회 홈">
+        <img src="KBCG_logo_notext.png" alt="logo" width="34" height="34" />
+        <b>게인스빌 한인교회</b>
       </a>
       <nav aria-label="주 메뉴">
         <ul>
+          <li><a href="#home">Home</a></li>
           <li><a href="#about">교회 안내</a></li>
           <li><a href="#bulletin">주보</a></li>
           <li><a href="#sermons">설교 다시 듣기</a></li>
@@ -119,44 +220,80 @@
   </header>
 
   <!-- Hero -->
-  <main id="home" class="hero">
+  <section id="home" class="hero">
     <div class="container wrap">
       <div>
-        <span class="badge">하나님을 예배하고 이웃을 섬기는 교회</span>
-        <h1>우리교회에 오신 것을 환영합니다</h1>
-        <p class="subtitle">주일예배 • 소그룹 • 다음세대 • 지역선교</p>
+        <!-- <p class="subtitle">주일예배 • 소그룹 • 다음세대 • 지역선교</p> -->
+        <div class="kicker">Welcome</div>
+        <h1>게인스빌 한인 교회에 오신 것을 진심으로 환영합니다</h1>
+        <span class="badge">2025년 표어 예수님 안에서 나를 알고 함께 걷는 교회</span>
+        <p class="hero-verse mt-8">“그러므로 이렇게 구름떼와 같이 수많은 증인이 우리를 둘러싸고 있으니, 우리도 갖가지 무거운 짐과 얽매는 죄를 벗어버리고, 우리앞에 놓인 달음질을 참으면서 달려갑시다. 믿음의 창시자요 완성자이신 예수를 바라봅시다. 그는 자기앞에 놓여 있는 기쁨을 내다보고서, 부끄러움을 마음에 두지 않으시고, 십자가를 참으셨습니다. 그리하여 그는 하나님의 보좌 오른쪽에 앉으셨습니다.” (히브리서 12:1-2)</p>
         <div class="mt-8" role="group" aria-label="바로가기 버튼">
           <a class="btn" href="#about">예배시간 보기</a>
           <a class="btn alt" href="#giving" style="margin-left:8px">헌금 안내</a>
         </div>
-        <p class="hero-verse mt-8">“여호와께 감사하라 그는 선하시며 그 인자하심이 영원함이로다.” (시편 107:1)</p>
       </div>
       <div class="hero-card">
         <div class="grid">
           <div class="cell">
-            <div class="meta">주일예배</div>
-            <div><b>주일 오전 11:00</b></div>
+            <div class="meta">주일 오전 예배</div>
+            <div><b>주일 오전 10:00</b></div>
             <div class="muted">본당</div>
           </div>
           <div class="cell">
-            <div class="meta">새벽/수요기도</div>
-            <div><b>수요일 저녁 7:30</b></div>
-            <div class="muted">온라인/본당</div>
+            <div class="meta">교회 주소</div>
+            <div><b>5200 SW 63rd Blvd., Gainesville, FL</b></div>
+            <div class="muted"></div>
           </div>
           <div class="cell">
-            <div class="meta">주일학교</div>
-            <div><b>주일 오전 11:00</b></div>
-            <div class="muted">교육관</div>
+            <div class="meta">주일학교/중고등부</div>
+            <div><b>주일 오전 10:00</b></div>
+            <div class="muted">주일학교실/중고등부실</div>
           </div>
           <div class="cell">
             <div class="meta">담임목사</div>
-            <div><b>홍길동 목사</b></div>
-            <div class="muted">pastor@example.org</div>
+            <div><b>손민석 목사</b></div>
+            <div class="muted">kbcgweb@gmail.com</div>
+          </div>
+          <div class="cell">
+            <div class="meta">청년부 금요 저녁 예배</div>
+            <div><b>식사 (7시) / 예배 (8시) 및 목장 모임</b></div>
+            <div class="muted">본당</div>
+          </div>
+          <div class="cell">
+            <div class="meta">화요 찬양 예배</div>
+            <div><b>매달 둘째 화요일 저녁 7시</b></div>
+            <div class="muted">본당</div>
           </div>
         </div>
       </div>
+
     </div>
-  </main>
+  </section>
+
+  <section id="greetings" class="greetings-section">
+    <div class="container">
+        <div class="kicker">Greetings</div>
+        <h2>환영의 글</h2>
+    <div class="wrap">
+      <div class="pastor-photo">
+        <img src="pastor_sohn.jpg" alt="담임목사 사진" />
+      </div>
+      <div class="greetings-text">
+        <p>
+        게인스빌한인교회 홈 페이지에 오신 것을 진심으로 환영합니다.
+        우리 교회는 1980년도에 설립되어 지금까지 예수 그리스도의 복음의 기초 위에 성도들의 삶 속에서 복음의 사랑의 능력이 드러나도록 서로 돕고, 격려하는 교회입니다.
+        많은 다양한 교파 출신들의 교우들이 하나됨을 이루며, 오직 하나님 나라를 위하여, 또한 하나님이 지으신 이 세상 피조계를 위하여 각자의 사명을 주님 은혜 안에서 감당하려고 애쓰고 있습니다.<br>
+        <br>
+        믿음의 주의 종들이 교회가 교회되게 하시는 일에 섬기시고 충성하심으로 일구어진 교회의 터 위에서 부지런히 주님 앞에 순종하는 교회가 되기를 원합니다.
+        성도님들이 서로 사랑함으로 그리스도의 나라를 더욱 기대하고 소망하는 사랑과 소망의 공동체가 되기를 기대하며 나아갑니다.
+        우리 교회 홈 페이지를 통해 조금이나마 유익이 되시기를 바라 마지 않으며, 모든 주님의 성도 간에, 또 성도와 세상 간에 주님의 화목의 복음이 늘 충만하기를 소원합니다.
+        </p>
+        <p class="signature">– 목회실에서 손민석 목사</p>
+      </div>
+    </div>
+    </div>
+  </section>
 
   <!-- 교회 안내 -->
   <section id="about">
@@ -165,13 +302,23 @@
       <h2>교회 안내</h2>
       <div class="tabs" aria-label="교회 안내 하위 메뉴">
         <a href="#times">예배시간</a>
-        <a href="#location">교회 위치</a>
         <a href="#history">연혁</a>
         <a href="#bylaws">정관</a>
+        <a href="#location">교회 위치</a>
       </div>
+
+      <!-- <div class="grid-2"> -->
+      <!--     <div id="test-a" class="panel pad" aria-labelledby="test-a-h">test</div> -->
+      <!--     <div id="test-b" class="panel pad" aria-labelledby="test-b-h">test</div> -->
+      <!-- </div> -->
+      <!-- <div class="grid-2"> -->
+      <!--     <div id="test-c" class="panel pad" aria-labelledby="test-a-h">test</div> -->
+      <!--     <div id="test-d" class="panel pad" aria-labelledby="test-b-h">test</div> -->
+      <!-- </div> -->
 
       <div class="grid-2">
         <!-- 예배시간 -->
+
         <div id="times" class="panel pad" aria-labelledby="times-h">
           <h3 id="times-h">예배시간</h3>
           <table>
@@ -179,49 +326,133 @@
               <tr><th>모임</th><th>시간</th><th>장소</th></tr>
             </thead>
             <tbody>
-              <tr><td>주일예배</td><td>주일 오전 11:00</td><td>본당</td></tr>
-              <tr><td>수요예배</td><td>수요일 저녁 7:30</td><td>본당/온라인</td></tr>
-              <tr><td>새벽기도</td><td>화–금 오전 6:00</td><td>본당</td></tr>
-              <tr><td>주일학교</td><td>주일 오전 11:00</td><td>교육관</td></tr>
-              <tr><td>청년부</td><td>주일 오후 1:30</td><td>카페</td></tr>
+              <tr><td>주일 오전 예배</td><td>오전 10시</td><td>본당</td></tr>
+              <tr><td>주일 학교</td><td>오전 10시</td><td>주일학교실</td></tr>
+              <tr><td>교사 예배</td><td>오전 9:20</td><td>본당</td></tr>
+              <tr><td>토요 새벽기도회</td><td>오전 5:30</td><td>본당</td></tr>
+              <tr><td>화요 기도회</td><td>오전 10시</td><td>본당</td></tr>
+              <tr><td>화요 성서 학교</td><td>저녁 7:30</td><td>본당</td></tr>
+              <tr><td>디모데 청년부 금요 예배</td><td>식사 (저녁 7시) / 예배 (저녁 8시) 및 목장 모임</td><td>본당</td></tr>
+              <tr><td>화요 찬양 예배</td><td>매달 둘째 화요일 저녁 7:30</td><td>본당</td></tr>
+              <tr><td>중고등부 예배</td><td>오전 10시</td><td>중고등부 예배실</td></tr>
+              <tr><td>중고등부 토요 모임</td><td>식사 / 소그룹 성경공부 및 그룹 활동 (오후 5시부터, 학기중)</td><td>중고등부 예배실</td></tr>
+              <tr><td>각 목장 모임</td><td>목장별 일정에 따라 진행</td><td>목장별로 상이</td></tr>
             </tbody>
           </table>
         </div>
 
-        <!-- 교회 위치 -->
-        <div id="location" class="panel pad" aria-labelledby="location-h">
-          <h3 id="location-h">교회 위치</h3>
-          <p class="mb-8">123 Church St, City, ST 12345</p>
-          <div class="card">
-            <p class="mb-8">아래 지도를 통해 길찾기를 이용하실 수 있습니다.</p>
-            <div class="center">
-              <iframe title="우리교회 위치" width="100%" height="260" style="border:0;border-radius:12px" loading="lazy" allowfullscreen
-                referrerpolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d0!2d-81.3792365!3d29.6516344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z7JWM7J2067OR!5e0!3m2!1sko!2sus!4v1700000000000"></iframe>
-            </div>
-            <p class="meta mt-8">주차: 교회 앞/뒷마당 이용 가능</p>
-          </div>
+
+        <div id="history" class="panel pad" aria-labelledby="history-h">
+          <h3 id="history-h">연혁</h3>
+          <ul>
+            <li>
+              <b>1980년</b>
+              <ul>
+                  <li><b>7월 6일 오후 4:30</b> — 교회 창립<br>
+                  장소: (Presbyterian Student Center, UF)<br>
+                  인도: 박요한 목사 (Tampa 장로교회)<br>
+                  어른 8명, 어린이 4명 (총 12명)
+                </li>
+              </ul>
+            </li>
+        
+            <li>
+              <b>1981년</b>
+              <ul>
+                <li><b>6월</b> — 황태준 목사 시무</li>
+                <li><b>8월</b> — 임경철 목사 토요예배 인도 시작</li>
+              </ul>
+            </li>
+        
+            <li>
+              <b>1987년</b>
+              <ul>
+                <li><b>6월</b> — 임정수 목사 시무</li>
+              </ul>
+            </li>
+        
+            <!-- <li> -->
+            <!--   <b>1988년</b> -->
+            <!--   <ul> -->
+            <!--     <li><b>6월</b> — 임정수 목사 사역 종료</li> -->
+            <!--   </ul> -->
+            <!-- </li> -->
+        
+            <li>
+              <b>1995년</b>
+              <ul>
+                <li><b>5월</b> — 손희영 목사 담임목사 시무<br>
+                Westside Baptist Church 임대 사용 시작</li>
+              </ul>
+            </li>
+        
+            <!-- <li> -->
+            <!--   <b>1997년</b> -->
+            <!--   <ul> -->
+            <!--     <li><b>6월</b> — Westside Baptist Church 임대 사용 종료</li> -->
+            <!--   </ul> -->
+            <!-- </li> -->
+        
+            <li>
+              <b>1998년</b>
+              <ul>
+                  <li><b>6월 28일</b> — 현 교회당 입당예배<br>5200 SW 63rd Blvd., Gainesville, FL 32608</li>
+              </ul>
+            </li>
+        
+            <li>
+              <b>2004년</b>
+              <ul>
+                <li><b>7월</b> — 손민석 목사 부목사로 부임</li>
+              </ul>
+            </li>
+        
+            <li>
+              <b>2011년</b>
+              <ul>
+                <li><b>10월</b> — 손희영 목사, 한국 “행복을 나누는 하나교회” 설립 (서울 양재동 첫 예배)</li>
+              </ul>
+            </li>
+        
+            <li>
+              <b>2014년</b>
+              <ul>
+                <li><b>1월</b> — 손희영 목사 협동목사, 손민석 목사 담임목사로 시무 시작
+                <br>국장 체제에서 목자 체제로 전환
+                <br>김성중 목사 교육목사로 시무</li>
+                <li><b>3월 18일</b> — 손민석 목사 담임목사 취임예배</li>
+                <li><b>3월 30일</b> — 제직회에서 손희영 목사를 “명예목사”로 추대</li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </div>
 
       <!-- 연혁 / 정관 -->
       <div class="grid-2 mt-8">
-        <div id="history" class="panel pad" aria-labelledby="history-h">
-          <h3 id="history-h">연혁</h3>
-          <ul>
-            <li><b>2025</b> — 교육관 리모델링 및 다음세대 사역 확장</li>
-            <li><b>2023</b> — 지역선교 시작, 푸드드라이브 정례화</li>
-            <li><b>2020</b> — 온라인 예배 및 미디어 사역 개시</li>
-            <li><b>2015</b> — 교회 창립</li>
-          </ul>
-        </div>
+
         <div id="bylaws" class="panel pad" aria-labelledby="bylaws-h">
           <h3 id="bylaws-h">정관</h3>
           <p class="mb-8">교회의 조직과 운영 원칙을 담은 정관입니다. PDF 파일을 다운로드해 열람하실 수 있습니다.</p>
-          <a class="btn" href="#" onclick="alert('정관 PDF를 연결해 주세요. /bylaws.pdf 등');return false;">정관 PDF 내려받기</a>
-          <p class="fine mt-8">* 실제 파일 경로로 링크를 교체해 주세요.</p>
+          <a class="btn" href="https://drive.google.com/file/d/1MsMnvTm2Qvw2JOzFoG5i9E75Y6q2YoDL/view?usp=share_link">정관 PDF</a>
+        </div>
+
+        <!-- 교회 위치 -->
+        <div id="location" class="panel pad" aria-labelledby="location-h">
+            <h3 id="location-h">교회 위치</h3>
+            <p class="mb-8">5200 SW 63rd Blvd., Gainesville, FL 32608</p>
+            <div class="card">
+                <p class="mb-8">아래 지도를 통해 길찾기를 이용하실 수 있습니다.</p>
+                <div class="center">
+                    <iframe title="우리교회 위치" width="100%" height="260" style="border:0;border-radius:12px" loading="lazy" allowfullscreen
+                                                                                                                referrerpolicy="no-referrer-when-downgrade"
+                                                                                                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d40823.888082007456!2d-82.40515345565778!3d29.635161223093522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e8bd3d37507597%3A0x9eb7ec32aa0f46b8!2s5200%20SW%2063rd%20Blvd%2C%20Gainesville%2C%20FL%2032608!5e0!3m2!1sen!2sus!4v1760936408086!5m2!1sen!2sus"></iframe>
+                </div>
+                <p class="meta mt-8">주차: 교회 주차 이용 가능</p>
+            </div>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -230,27 +461,34 @@
     <div class="container">
       <div class="kicker">Weekly Bulletin</div>
       <h2>주보</h2>
-      <p class="muted mb-16">최근 주보를 PDF로 제공합니다. 파일을 클릭하시면 열람/다운로드하실 수 있습니다.</p>
-      <div class="grid-3">
-        <!-- 반복 카드 예시: 최신 순 -->
-        <article class="card">
-          <h3>주보 — 2025-10-19</h3>
-          <p class="meta">Ordinary Time • 시편 107편</p>
-          <a class="btn mt-8" href="#" onclick="alert('주보 PDF를 연결해 주세요. /bulletins/2025-10-19.pdf');return false;">PDF 보기</a>
-        </article>
-        <article class="card">
-          <h3>주보 — 2025-10-12</h3>
-          <p class="meta">추수감사절 연합예배 안내</p>
-          <a class="btn mt-8" href="#" onclick="alert('PDF 링크로 교체');return false;">PDF 보기</a>
-        </article>
-        <article class="card">
-          <h3>주보 — 2025-10-05</h3>
-          <p class="meta">선교 바자회 예고</p>
-          <a class="btn mt-8" href="#" onclick="alert('PDF 링크로 교체');return false;">PDF 보기</a>
-        </article>
+  
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;">
+        
+        <!-- Left: Current bulletin image -->
+        <div>
+          <a href="jubo.png" target="_blank" style="display:block;">
+            <img src="jubo.png" alt="이번 주 주보" 
+                 style="width:100%;max-width:500px;border-radius:12px;box-shadow:var(--shadow);" />
+          </a>
+        </div>
+  
+        <!-- Right: Text and link -->
+        <div style="text-align: center;">
+          <h3>📚 지난 주보 보기</h3>
+          <p class="muted mb-16">
+            이전 예배의 주보를 모두 보관하고 있습니다.<br>
+            주간 광고, 교회 소식을 Google Drive에서 확인하실 수 있습니다.
+          </p>
+          <a class="btn" href="https://drive.google.com/drive/folders/1p5C5tTPlBNRg4B4fWnvG-UWjaQKDkvXH?usp=share_link" target="_blank">
+            📂 Google Drive에서 보기
+          </a>
+          <p class="fine mt-16">* 새로운 주보는 매주 주일 이후 업데이트됩니다.</p>
+        </div>
+
       </div>
     </div>
   </section>
+
 
   <!-- 설교 다시 듣기 -->
   <section id="sermons">
@@ -258,20 +496,32 @@
       <div class="kicker">Sermons</div>
       <h2>설교 다시 듣기</h2>
       <div class="grid-2">
+        <!-- <article class="card"> -->
+        <!--   <h3>감사의 사람 (시편 107:1) — 2025-10-19</h3> -->
+        <!--   <audio controls style="width:100%"> -->
+        <!--     <source src="/sermons/2025-10-19.mp3" type="audio/mpeg" /> -->
+        <!--     브라우저가 오디오 재생을 지원하지 않습니다. -->
+        <!--   </audio> -->
+        <!--   <p class="meta">설교: 홍길동 목사 • 길이: 32:14</p> -->
+        <!-- </article> -->
+        <!-- Right: Text and link -->
+        <div style="text-align: center;">
+          <h3>📖 지난 설교 보기</h3>
+          <p class="muted mb-16">
+            이전 예배의 설교를 모두 보관하고 있습니다.<br>
+            매주 설교는 YouTube에서 다시 보실 수 있습니다.
+          </p>
+          <a class="ybtn" href="https://www.youtube.com/@gainesvillekbcg7070/videos" target="_blank">
+            📂 교회 YouTube 채널에서 보기
+          </a>
+          <p class="fine mt-16">* 새로운 주보는 매주 주일 이후 업데이트됩니다.</p>
+        </div>
         <article class="card">
-          <h3>감사의 사람 (시편 107:1) — 2025-10-19</h3>
-          <audio controls style="width:100%">
-            <source src="/sermons/2025-10-19.mp3" type="audio/mpeg" />
-            브라우저가 오디오 재생을 지원하지 않습니다.
-          </audio>
-          <p class="meta">설교: 홍길동 목사 • 길이: 32:14</p>
-        </article>
-        <article class="card">
-          <h3>믿음의 눈으로 (히브리서 11:1) — 2025-10-12</h3>
+          <h3>주님을 아는 지식 (28) 부활의 주님을 만남으로 — 2025-10-12</h3>
           <div style="position:relative;padding-top:56.25%">
-            <iframe title="YouTube sermon" src="https://www.youtube.com/embed/VIDEO_ID" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:12px"></iframe>
+            <iframe title="YouTube sermon" src="https://www.youtube.com/embed/Lqc4EYa2wjY?si=p_-knlYOhidiKyKl" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:12px"></iframe>
           </div>
-          <p class="fine mt-8">* 유튜브 영상 ID로 교체해 주세요.</p>
+          <!-- <p class="fine mt-8">* 유튜브 영상 ID로 교체해 주세요.</p> -->
         </article>
       </div>
     </div>
@@ -280,33 +530,33 @@
   <!-- 헌금 (Zelle) -->
   <section id="giving">
     <div class="container">
-      <div class="kicker">Giving</div>
+      <div class="kicker">Offering</div>
       <h2>헌금</h2>
-      <div class="grid-2">
+      <!-- <div class="grid-2"> -->
         <div class="panel pad">
           <h3>온라인 헌금 (Zelle)</h3>
           <p>우리교회는 Zelle®을 통해 안전하게 온라인 헌금을 받습니다. 아래 안내에 따라 보내주세요.</p>
           <ul>
-            <li><b>수취인 이름</b>: Our Church</li>
-            <li><b>Zelle 아이디 (이메일)</b>: <span class="mono">give@ourchurch.org</span></li>
+            <li><b>수취인 이름</b>: Korean Baptist Church of Gainesville</li>
+            <li><b>Zelle 아이디 (이메일)</b>: <span class="mono">kbcg.financial@gmail.com</span></li>
             <li><b>메모</b>: <span class="mono">Tithe / Thanksgiving / Mission / Building</span> 중 선택 (이름 포함)</li>
           </ul>
-          <div class="card">
-            <p class="mb-8">은행 앱 또는 Zelle 앱을 열고, 위의 이메일로 송금하세요.</p>
-            <ol class="muted">
-              <li>Pay &rarr; Send via Zelle 선택</li>
-              <li>받는 사람 이메일 입력: <span class="mono">give@ourchurch.org</span></li>
-              <li>금액과 <b>메모</b> 입력 후 전송</li>
-            </ol>
-          </div>
-          <p class="fine mt-8">* 영수증이 필요하신 분은 사무실에 문의해 주세요: <a href="mailto:office@ourchurch.org">office@ourchurch.org</a></p>
-        </div>
-        <div class="panel pad">
-          <h3>오프라인 헌금</h3>
-          <p>주일예배 시 헌금함에 봉헌하거나, 아래 주소로 우편 발송 가능합니다.</p>
-          <p class="mb-8">Attn: Treasurer<br/>Our Church<br/>123 Church St, City, ST 12345</p>
-          <div class="chip">세금공제 가능 영수증 발급</div>
-        </div>
+          <!-- <div class="card"> -->
+          <!--   <p class="mb-8">은행 앱 또는 Zelle 앱을 열고, 위의 이메일로 송금하세요.</p> -->
+          <!--   <ol class="muted"> -->
+          <!--     <li>Pay &rarr; Send via Zelle 선택</li> -->
+          <!--     <li>받는 사람 이메일 입력: <span class="mono">give@ourchurch.org</span></li> -->
+          <!--     <li>금액과 <b>메모</b> 입력 후 전송</li> -->
+          <!--   </ol> -->
+          <!-- </div> -->
+          <p class="fine mt-8">* 세금문서가 필요하신 분은 사무실에 문의해 주세요</p>
+        <!-- </div> -->
+        <!-- <div class="panel pad"> -->
+        <!--   <h3>오프라인 헌금</h3> -->
+        <!--   <p>주일예배 시 헌금함에 봉헌하거나, 아래 주소로 우편 발송 가능합니다.</p> -->
+        <!--   <p class="mb-8">Attn: Treasurer<br/>Our Church<br/>123 Church St, City, ST 12345</p> -->
+        <!--   <div class="chip">세금공제 가능 영수증 발급</div> -->
+        <!-- </div> -->
       </div>
     </div>
   </section>
@@ -315,19 +565,19 @@
     <div class="container">
       <div class="grid-3">
         <div>
-          <b>우리교회</b>
-          <p class="muted">123 Church St, City, ST 12345<br/>Tel: (555) 123-4567<br/>Email: <a href="mailto:info@ourchurch.org">info@ourchurch.org</a></p>
+          <b>게인스빌 한인 교회</b>
+          <p class="muted">5200 SW 63rd Blvd., Gainesville, FL 32608<br/>Tel: (352) 380-0691<br/>Email: <a href="mailto:kbcgweb@gmail.com">kbcgweb@gmail.com</a></p>
         </div>
-        <div>
-          <b>예배 안내</b>
-          <p class="muted">주일 오전 11:00 (본당)<br/>수요일 저녁 7:30 (본당/온라인)</p>
-        </div>
+        <!-- <div> -->
+        <!--   <b>예배 안내</b> -->
+        <!--   <p class="muted">주일 오전 11:00 (본당)<br/>수요일 저녁 7:30 (본당/온라인)</p> -->
+        <!-- </div> -->
         <div>
           <b>바로가기</b>
           <p><a href="#about">교회 안내</a> • <a href="#bulletin">주보</a> • <a href="#sermons">설교</a> • <a href="#giving">헌금</a></p>
         </div>
       </div>
-      <p class="fine">© <span id="y"></span> 우리교회. All rights reserved.</p>
+      <p class="fine">© <span id="y"></span> 게인스빌 한인 교회. All rights reserved.</p>
     </div>
   </footer>
 
