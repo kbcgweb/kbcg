@@ -41,14 +41,14 @@
 
     /* Hero */
     .hero{position:relative;overflow:hidden}
-    .hero .wrap{display:grid;grid-template-columns:1.2fr .9fr;gap:26px;align-items:center;padding:0px 24px}
-    .badge{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--border);padding:6px 10px;border-radius:999px;color:var(--muted);font-size:16px;background:#fff}
+    .hero .wrap{display:grid;grid-template-columns:1.2fr .1fr;gap:26px;align-items:center;padding:0px 24px}
+    .badge{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--border);padding:6px 10px;border-radius:999px;color:var(--muted);font-size:25px;background:#fff}
     h1{font-size:40px;line-height:1.2;margin:14px 0 8px}
     .subtitle{color:var(--muted);font-size:16px}
     .hero-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
     .hero-card .grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
     .hero-card .cell{background:#f8fafc;border:1px solid var(--border);border-radius:14px;padding:12px;text-align:center}
-    .hero-verse{font-style:italic;color:#4338ca;font-size:14px} /* indigo-700 */
+    .hero-verse{font-style:italic;color:#4338ca;font-size:16px;max-width: 800px;margin: 0 auto} /* indigo-700 */
 
     /* Sections */
     section{padding:56px 0;border-top:1px solid var(--border)}
@@ -312,6 +312,17 @@
   }
 }
 
+@media (max-width: 768px) {
+  .hide-on-phone {
+    display: none;
+  }
+}
+
+.shrink-lists ul,
+.shrink-lists li {
+  font-size: 12px;
+}
+
 
 
   </style>
@@ -325,22 +336,13 @@
         <img src="KBCG_logo_notext.png" alt="logo" width="34" height="34" />
         <b>게인스빌 한인교회</b>
       </a>
-      <!-- <nav class="hidden lg:flex items-center gap-2" aria-label="주 메뉴"> -->
-      <!--   <ul> -->
-      <!--     <li><a href="#home">Home</a></li> -->
-      <!--     <li><a href="#about">교회 안내</a></li> -->
-      <!--     <li><a href="#bulletin">주보</a></li> -->
-      <!--     <li><a href="#sermons">설교 다시 듣기</a></li> -->
-      <!--     <li><a href="#giving">헌금</a></li> -->
-      <!--   </ul> -->
-      <!-- </nav> -->
       <button class="menu-toggle" aria-label="Toggle menu">☰</button>
       <nav class="nav-menu">
         <ul>
-          <li><a href="#home">Home</a></li>
+          <li><a href="#greetings">Home</a></li>
           <li><a href="#about">교회 안내</a></li>
           <li><a href="#sermons">설교</a></li>
-          <li><a href="#bulletin">주보/목양 자료</a></li>
+          <li><a href="#bulletin">주보 / 목양자료</a></li>
           <li><a href="#giving">헌금</a></li>
         </ul>
       </nav>
@@ -371,63 +373,22 @@
 </script>
 
 
-  <!-- Hero -->
-  <section id="home" class="hero">
-    <div class="container wrap">
-      <div>
-        <!-- <p class="subtitle">주일예배 • 소그룹 • 다음세대 • 지역선교</p> -->
-        <div class="kicker">Welcome</div>
-        <h1>게인스빌 한인 교회에 오신 것을 진심으로 환영합니다</h1>
-        <span class="badge">2025년 표어 예수님 안에서 나를 알고 함께 걷는 교회</span>
-        <p class="hero-verse mt-8">“그러므로 이렇게 구름떼와 같이 수많은 증인이 우리를 둘러싸고 있으니, 우리도 갖가지 무거운 짐과 얽매는 죄를 벗어버리고, 우리앞에 놓인 달음질을 참으면서 달려갑시다. 믿음의 창시자요 완성자이신 예수를 바라봅시다. 그는 자기앞에 놓여 있는 기쁨을 내다보고서, 부끄러움을 마음에 두지 않으시고, 십자가를 참으셨습니다. 그리하여 그는 하나님의 보좌 오른쪽에 앉으셨습니다.” (히브리서 12:1-2)</p>
-        <div class="mt-8" role="group" aria-label="바로가기 버튼">
-          <a class="btn" href="#about">예배 안내</a>
-          <a class="ybtn" href="#sermons" style="margin-left:8px">설교 듣기</a>
-          <a class="btn alt" href="#giving" style="margin-left:8px">헌금 안내</a>
-        </div>
-      </div>
-      <div class="hero-card">
-        <div class="grid">
-          <div class="cell">
-            <div class="meta">주일 오전 예배</div>
-            <div><b>주일 오전 10:00</b></div>
-            <div class="muted">본당</div>
-          </div>
-          <div class="cell">
-            <div class="meta">교회 주소</div>
-            <div><b>5200 SW 63rd Blvd., Gainesville, FL</b></div>
-            <div class="muted"></div>
-          </div>
-          <div class="cell">
-            <div class="meta">주일학교/중고등부</div>
-            <div><b>주일 오전 10:00</b></div>
-            <div class="muted">주일학교실/중고등부실</div>
-          </div>
-          <div class="cell">
-            <div class="meta">담임목사</div>
-            <div><b>손민석 목사</b></div>
-            <div class="muted">kbcgweb@gmail.com</div>
-          </div>
-          <div class="cell">
-            <div class="meta">디모데 청년부 금요 저녁 예배</div>
-            <div><b>식사 (7시) / 예배 (8시) 및 목장 모임</b></div>
-            <div class="muted">본당</div>
-          </div>
-          <div class="cell">
-            <div class="meta">화요 찬양 예배</div>
-            <div><b>매달 둘째 화요일 저녁 7시</b></div>
-            <div class="muted">본당</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
+  <!-- <section id="greetings" class="greetings-section"> -->
   <section id="greetings" class="greetings-section">
     <div class="container">
-        <div class="kicker">Greetings</div>
-        <h2>환영의 글</h2>
+        <!-- <div class="kicker">Greetings</div> -->
+        <!-- <h2>환영의 글</h2> -->
+    <!-- test test test test -->
+        <!-- <div class="kicker">Welcome</div> -->
+        <div style="text-align: center">
+        <h1>게인스빌 한인 교회에 오신 것을 진심으로 환영합니다</h1>
+        <br>
+        <span class="badge">2025년 표어 예수님 안에서 나를 알고 함께 걷는 교회</span>
+        <br>
+        <br>
+        <p class="hero-verse mt-8">“그러므로 이렇게 구름떼와 같이 수많은 증인이 우리를 둘러싸고 있으니, 우리도 갖가지 무거운 짐과 얽매는 죄를 벗어버리고, 우리앞에 놓인 달음질을 참으면서 달려갑시다. 믿음의 창시자요 완성자이신 예수를 바라봅시다. 그는 자기앞에 놓여 있는 기쁨을 내다보고서, 부끄러움을 마음에 두지 않으시고, 십자가를 참으셨습니다. 그리하여 그는 하나님의 보좌 오른쪽에 앉으셨습니다.”<br>(히브리서 12:1-2)</p>
+        </div>
+    <br>
     <div class="wrap">
       <div class="pastor-photo">
         <img src="pastor_sohn.jpg" alt="담임목사 사진" />
@@ -455,7 +416,7 @@
       <h2>교회 안내</h2>
       <div class="tabs" aria-label="교회 안내 하위 메뉴">
         <a href="#times">예배시간</a>
-        <a href="#history">연혁</a>
+        <a href="#history" class="hide-on-phone">연혁</a>
         <a href="#timothy">디모데 청년부</a>
         <a href="#location">교회 위치</a>
         <a href="#bylaws">정관</a>
@@ -480,24 +441,25 @@
               <tr><th>모임</th><th>시간</th><th>장소</th></tr>
             </thead>
             <tbody>
-              <tr><td>주일 오전 예배</td><td>오전 10시</td><td>본당</td></tr>
-              <tr><td>주일 학교</td><td>오전 10시</td><td>주일학교실</td></tr>
-              <tr><td>교사 예배</td><td>오전 9:20</td><td>본당</td></tr>
-              <tr><td>토요 새벽기도회</td><td>오전 5:30</td><td>본당</td></tr>
+              <tr><td>주일 오전 예배</td><td>오전 10시 (교사예배 9:20)</td><td>본당</td></tr>
+              <tr><td>주일학교/중고등부</td><td>오전 10시</td><td>교육관</td></tr>
+              <!-- <tr><td>교사 예배</td><td>오전 9:20</td><td>본당</td></tr> -->
               <tr><td>화요 기도회</td><td>오전 10시</td><td>본당</td></tr>
               <tr><td>화요 성서 학교</td><td>저녁 7:30</td><td>본당</td></tr>
-              <tr><td>디모데 청년부 금요 예배</td><td>식사 (저녁 7시) / 예배 (저녁 8시) 및 목장 모임</td><td>본당</td></tr>
               <tr><td>화요 찬양 예배</td><td>매달 둘째 화요일 저녁 7:30</td><td>본당</td></tr>
-              <tr><td>중고등부 예배</td><td>오전 10시</td><td>중고등부 예배실</td></tr>
-              <tr><td>중고등부 토요 모임</td><td>식사 / 소그룹 성경공부 및 그룹 활동 (오후 5시부터, 학기중)</td><td>중고등부 예배실</td></tr>
-              <tr><td>각 목장 모임</td><td>목장별 일정에 따라 진행</td><td>목장별로 상이</td></tr>
+              <tr><td>디모데 청년부<br>금요 저녁 예배</td><td>식사 (7시) / 예배 (8시) 및<br>목장 모임</td><td>본당</td></tr>
+              <!-- <tr><td>중고등부 예배</td><td>오전 10시</td><td>중고등부 예배실</td></tr> -->
+              <tr><td>토요 새벽기도회</td><td>오전 5:30</td><td>본당</td></tr>
+              <tr><td>중고등부<br>토요 모임</td><td>식사 / 소그룹 성경공부 및<br>그룹 활동 (오후 5시부터, 학기중)</td><td>교육관</td></tr>
+              <tr><td>각 목장 모임</td><td>목장별 일정에 따라 진행</td><td>목장별</td></tr>
             </tbody>
           </table>
         </div>
 
 
-        <div id="history" class="panel pad" aria-labelledby="history-h">
+        <div id="history" class="panel pad hide-on-phone" aria-labelledby="history-h">
           <h3 id="history-h">연혁</h3>
+          <div class="shrink-lists">
           <ul>
             <li>
               <b>1980년</b>
@@ -579,6 +541,7 @@
               </ul>
             </li>
           </ul>
+          </div>
         </div>
       </div>
 
@@ -616,14 +579,15 @@
   <!-- </div> -->
 
   <div class="mt-6">
-    <p><strong>예배 시간 (매주 금요일):</strong><br>
-      🍽️ 식사 – 저녁 7시<br>
-      🙏 예배 및 목장 모임 – 저녁 8시
+    <p>디모데 청년부는 매주 금요일 저녁 식사(7시)와 예배(8시)를 함께합니다.<br>
+      <!-- 🍽️ 식사 – 저녁 7시<br> -->
+      <!-- 🙏 예배 및 목장 모임 – 저녁 8시 -->
     </p>
 
-    <p class="mt-4"><strong>장소:</strong><br>
-      📍 게인스빌 한인침례교회<br>
-      🚗 모든 예배에 라이드가 제공됩니다.
+    <p class="mt-4">
+    <!-- <strong>장소:</strong><br> -->
+      <!-- 📍 게인스빌 한인침례교회<br> -->
+      🚗 예배 라이드 제공됩니다.
     </p>
   </div>
 
@@ -649,9 +613,9 @@
             <h3 id="location-h">교회 위치</h3>
             <p class="mb-8">5200 SW 63rd Blvd., Gainesville, FL 32608</p>
             <div class="card">
-                <p class="mb-8">아래 지도를 통해 길찾기를 이용하실 수 있습니다.</p>
+                <!-- <p class="mb-8">아래 지도를 통해 길찾기를 이용하실 수 있습니다.</p> -->
                 <div class="center">
-                    <iframe title="게인스빌 한인 교회 위치" width="100%" height="260" style="border:0;border-radius:12px" loading="lazy" allowfullscreen
+                    <iframe title="게인스빌 한인 교회 위치" width="100%" height="200" style="border:0;border-radius:12px" loading="lazy" allowfullscreen
                                                                                                                 referrerpolicy="no-referrer-when-downgrade"
                                                                                                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d40823.888082007456!2d-82.40515345565778!3d29.635161223093522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e8bd3d37507597%3A0x9eb7ec32aa0f46b8!2s5200%20SW%2063rd%20Blvd%2C%20Gainesville%2C%20FL%2032608!5e0!3m2!1sen!2sus!4v1760936408086!5m2!1sen!2sus"></iframe>
                 </div>
@@ -725,7 +689,7 @@
             <!-- 이전 예배의 설교를 모두 보관하고 있습니다.<br> -->
             매주 설교는 OneDrive에서 다시 들으실 수 있습니다.
           </p>
-          <a class="btn" href="onedrivelink" target="_blank">
+          <a class="btn" href="https://1drv.ms/f/c/be0c40a67e1041b9/Etg8dAo_HBdPt3PTIjskaMUBHpYRJ4zKXxWTrVClH_q7aQ" target="_blank">
             📂 OneDrive 에서 보기
           </a>
           <p class="fine mt-16">* 새 예배 설교는 매주 주일 이후 업데이트됩니다.</p>
@@ -740,7 +704,7 @@
           <!-- <h3>주님을 아는 지식 (28) 부활의 주님을 만남으로 — 2025-10-12</h3> -->
           <!-- <p class="meta">설교: 손민석 목사</p> -->
           <audio controls style="width:100%">
-            <source src="/sermons/2025-10-19.mp3" type="audio/mpeg" />
+            <source src="https://github.com/kbcgweb/kbcg/releases/download/v25-10-19/sermon.mp3" type="audio/mpeg" />
             브라우저가 오디오 재생을 지원하지 않습니다.
           </audio>
         </article>
@@ -791,19 +755,19 @@
           <h3>📚 지난 주보 보기</h3>
           <p class="muted mb-16">
             이전 예배의 주보를 모두 보관하고 있습니다.<br>
-            주간 광고, 교회 소식을 Google Drive에서 확인하실 수 있습니다.
+            주간 광고, 교회 소식을 OneDrive에서 확인하실 수 있습니다.
           </p>
-          <a class="btn" href="https://drive.google.com/drive/folders/1p5C5tTPlBNRg4B4fWnvG-UWjaQKDkvXH?usp=share_link" target="_blank">
-            📂 Google Drive에서 지난 주보 보기
+          <a class="btn" href="https://1drv.ms/f/c/be0c40a67e1041b9/EuZT-2mnIKhAgh0sYSRcZCEBNqMwlTW30kmUiBeuEUyNWw" target="_blank">
+            📂 OneDrive 에서 지난 주보 보기
           </a>
           <br>
           <h3>📚 지난 목양 자료 보기</h3>
           <p class="muted mb-16">
             매주 설교를 기반하여 만든 설교 요약본을 보관하고 있습니다.<br>
-            지난 목양 자료를 Google Drive에서 확인하실 수 있습니다.
+            지난 목양 자료를 OneDrive에서 확인하실 수 있습니다.
           </p>
-          <a class="btn" href="https://drive.google.com/drive/folders/1p5C5tTPlBNRg4B4fWnvG-UWjaQKDkvXH?usp=share_link" target="_blank">
-            📂 Google Drive에서 목양 자료 보기
+          <a class="btn" href="https://1drv.ms/f/c/be0c40a67e1041b9/Eq5sc-jpC9lDrTGEBzPUevABA5QZ2N3JqagAYQPvtPvrcg" target="_blank">
+            📂 OneDrive 에서 목양 자료 보기
           </a>
           <!-- <p class="fine mt-16">* 새로운 주보는 매주 주일 이후 업데이트됩니다.</p> -->
           <p class="fine mt-16">* 새로운 주보는 매주 주일 이후 업데이트됩니다.</p>
