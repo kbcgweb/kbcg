@@ -986,24 +986,24 @@ td:nth-child(3) {
     </div>
   </footer>
 
-  <script>
-    // Set current year in footer
-    document.getElementById('y').textContent = new Date().getFullYear();
-    // Basic active link handling on scroll
-    const sections = ['about','bulletin','sermons','giving'];
-    const navLinks = Array.from(document.querySelectorAll('header.nav nav a'));
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){
-          navLinks.forEach(a=>a.classList.remove('active'));
-          const id = e.target.getAttribute('id');
-          const match = navLinks.find(a=>a.getAttribute('href')==='#'+id);
-          if(match) match.classList.add('active');
-        }
-      })
-    }, { root:null, threshold:.15 });
-    sections.forEach(id=>{const el=document.getElementById(id); if(el) io.observe(el)});
-  </script>
+  <!-- <script> -->
+  <!--   // Set current year in footer -->
+  <!--   document.getElementById('y').textContent = new Date().getFullYear(); -->
+  <!--   // Basic active link handling on scroll -->
+  <!--   const sections = ['about','bulletin','sermons','giving']; -->
+  <!--   const navLinks = Array.from(document.querySelectorAll('header.nav nav a')); -->
+  <!--   const io = new IntersectionObserver((entries)=>{ -->
+  <!--     entries.forEach(e=>{ -->
+  <!--       if(e.isIntersecting){ -->
+  <!--         navLinks.forEach(a=>a.classList.remove('active')); -->
+  <!--         const id = e.target.getAttribute('id'); -->
+  <!--         const match = navLinks.find(a=>a.getAttribute('href')==='#'+id); -->
+  <!--         if(match) match.classList.add('active'); -->
+  <!--       } -->
+  <!--     }) -->
+  <!--   }, { root:null, threshold:.0, rootMargin: '-10% 0px -90% 0px' }); -->
+  <!--   sections.forEach(id=>{const el=document.getElementById(id); if(el) io.observe(el)}); -->
+  <!-- </script> -->
 
 <script>
 (function () {
