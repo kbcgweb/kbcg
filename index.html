@@ -522,6 +522,15 @@ td:nth-child(3) {
   }
 }
 
+html {
+  scroll-behavior: smooth;          /* 선택: 부드럽게 */
+  scroll-padding-top: 84px;         /* 헤더 높이만큼 */
+}
+
+@media (max-width: 768px) {
+  html { scroll-padding-top: 120px; } /* 모바일에서 메뉴/패딩 더 크면 늘리기 */
+}
+
 
 
 
