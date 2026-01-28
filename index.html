@@ -341,6 +341,39 @@
   }
 }
 
+/* Make tables behave better on small screens */
+table {
+  table-layout: fixed;     /* predictable column widths */
+}
+
+th, td {
+  word-break: keep-all;    /* prevent Korean syllable-by-syllable breaking */
+  overflow-wrap: anywhere; /* if something MUST break, break cleanly */
+}
+
+/* Keep the "장소" column from turning vertical */
+th:nth-child(3),
+td:nth-child(3) {
+  white-space: nowrap;
+  text-align: center;
+  width: 4.5rem;           /* adjust if you want a bit wider */
+}
+
+/* Phone tuning */
+@media (max-width: 480px) {
+  th, td {
+    font-size: 14px;        /* slightly smaller */
+    padding: 8px;           /* tighter padding */
+  }
+
+  /* Optional: give "모임" a bit more room */
+  th:nth-child(1),
+  td:nth-child(1) {
+    width: 7.5rem;
+  }
+}
+
+
 
 
   </style>
