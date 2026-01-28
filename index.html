@@ -246,6 +246,137 @@
   }
 }
 
+#youthgroup .card-title {
+  margin: 0 0 0.75rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+#youthgroup .card-sep {
+  border: 0;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  margin: 1rem 0;
+}
+
+#youthgroup .kv {
+  margin: 0;
+}
+
+#youthgroup .kv-row {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: 0.5rem 1rem;
+  align-items: baseline;
+}
+
+#youthgroup dt,
+#youthgroup dd {
+  margin: 0;
+}
+
+#youthgroup dt {
+  color: #555;
+  font-weight: 600;
+}
+
+#youthgroup dd {
+  color: #111;
+}
+
+#youthgroup .block + .block {
+  margin-top: 0.75rem;
+}
+
+#youthgroup .block-title {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+#youthgroup .list-compact {
+  margin: 0.25rem 0 0;
+  padding-left: 1.1rem;
+}
+
+#youthgroup .list-compact li {
+  margin: 0.15rem 0;
+}
+
+#youthgroup .muted {
+  color: #6b7280;
+}
+
+@media (max-width: 420px) {
+  #youthgroup .kv-row {
+    grid-template-columns: 4.75rem 1fr;
+  }
+}
+
+
+#sundayschool .card-title {
+  margin: 0 0 0.75rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+#sundayschool .card-sep {
+  border: 0;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  margin: 1rem 0;
+}
+
+#sundayschool .kv {
+  margin: 0;
+}
+
+#sundayschool .kv-row {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: 0.5rem 1rem;
+  align-items: baseline;
+}
+
+#sundayschool dt,
+#sundayschool dd {
+  margin: 0;
+}
+
+#sundayschool dt {
+  color: #555;
+  font-weight: 600;
+}
+
+#sundayschool dd {
+  color: #111;
+}
+
+#sundayschool .block + .block {
+  margin-top: 0.75rem;
+}
+
+#sundayschool .block-title {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+#sundayschool .list-compact {
+  margin: 0.25rem 0 0;
+  padding-left: 1.1rem;
+}
+
+#sundayschool .list-compact li {
+  margin: 0.15rem 0;
+}
+
+#sundayschool .muted {
+  color: #6b7280;
+}
+
+@media (max-width: 420px) {
+  #sundayschool .kv-row {
+    grid-template-columns: 4.75rem 1fr;
+  }
+}
+
 
 #timothy .card-title {
   margin: 0 0 0.75rem;
@@ -343,25 +474,43 @@
 
 /* Make tables behave better on small screens */
 table {
+    width: 100%;
   table-layout: fixed;     /* predictable column widths */
 }
 
 th, td {
   word-break: keep-all;    /* prevent Korean syllable-by-syllable breaking */
-  overflow-wrap: anywhere; /* if something MUST break, break cleanly */
+  overflow-wrap: break-word; /* if something MUST break, break cleanly */
+  <!-- overflow-wrap: anywhere; /* if something MUST break, break cleanly */ -->
+  white-space: normal;
 }
+
+th:nth-child(1),
+td:nth-child(1) {
+  width: 5.5rem;
+  text-align: center;
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+  width: 8.5rem;
+  text-align: center;
+}
+
 
 /* Keep the "장소" column from turning vertical */
 th:nth-child(3),
 td:nth-child(3) {
   white-space: nowrap;
   text-align: center;
-  width: 4.5rem;           /* adjust if you want a bit wider */
+  width: 7.5rem;           /* adjust if you want a bit wider */
+  word-break: keep-all;
 }
 
 /* Phone tuning */
 @media (max-width: 480px) {
   th, td {
+    white-space: nowrap;
     font-size: 14px;        /* slightly smaller */
     padding: 8px;           /* tighter padding */
   }
@@ -561,7 +710,8 @@ td:nth-child(3) {
             </thead>
             <tbody>
               <tr><td>주일 오전 예배</td><td>오전 10시 (교사예배 9:20)</td><td>본당</td></tr>
-              <tr><td>주일학교/중고등부</td><td>오전 10시</td><td>교육관</td></tr>
+              <tr><td>주일학교</td><td>오전 10시</td><td>주일학교 예배실</td></tr>
+              <tr><td>중고등부</td><td>오전 10시</td><td>중고등부 예배실</td></tr>
               <!-- <tr><td>교사 예배</td><td>오전 9:20</td><td>본당</td></tr> -->
               <tr><td>화요 기도회</td><td>오전 10시</td><td>본당</td></tr>
               <tr><td>화요 성서 학교</td><td>저녁 7:30</td><td>본당</td></tr>
@@ -569,7 +719,7 @@ td:nth-child(3) {
               <tr><td>디모데 청년부<br>금요 저녁 예배</td><td>식사 (7시) / 예배 (8시) 및<br>목장 모임</td><td>본당</td></tr>
               <!-- <tr><td>중고등부 예배</td><td>오전 10시</td><td>중고등부 예배실</td></tr> -->
               <tr><td>토요 새벽기도회</td><td>오전 5:30</td><td>본당</td></tr>
-              <tr><td>중고등부<br>토요 모임</td><td>식사 / 소그룹 성경공부 및<br>그룹 활동 (오후 5시부터, 학기중)</td><td>교육관</td></tr>
+              <tr><td>중고등부<br>토요 모임</td><td>식사 / 소그룹 성경공부 및<br>그룹 활동 (오후 5시부터)</td><td>중고등부 예배실</td></tr>
               <tr><td>각 목장 모임</td><td>목장별 일정에 따라 진행</td><td>목장별</td></tr>
             </tbody>
           </table>
@@ -726,7 +876,87 @@ td:nth-child(3) {
   <!-- </div> -->
 </section>
 
+<section id="sundayschool" class="panel pad" aria-labelledby="sundayschool-h">
+  <h3 id="sundayschool-h" class="card-title">주일학교 안내</h3>
 
+  <dl class="kv">
+    <div class="kv-row">
+      <dt>부장</dt><dd>오은혜 집사님</dd>
+    </div>
+    <div class="kv-row">
+      <dt>총무</dt><dd>박은영 선생님</dd>
+    </div>
+    <div class="kv-row">
+      <dt>설교</dt><dd>최선영 선생님, 조근호 선생님</dd>
+    </div>
+    <div class="kv-row">
+      <dt>찬양인도</dt><dd>최해연, 김민혁, 신가영 선생님</dd>
+    </div>
+    <!-- <div class="kv-row"> -->
+    <!--   <dt>유치부</dt> <dd>김하경, 최민진, 허휘, 조원우 선생님</dd> -->
+    <!-- </div> -->
+    <!-- <div class="kv-row"> -->
+    <!--   <dt>아동부</dt> <dd>송보람, 서지윤, 송영재, 김현정, 조근호, 김경미 선생님</dd> -->
+    <!-- </div> -->
+  </dl>
+
+  <hr class="card-sep">
+  <h3 id="sundayschool-h" class="card-title">분반공부</h3>
+  <dl class="kv">
+    <div class="kv-row">
+      <dt>유치부</dt> <dd>김하경, 최민진, 허휘, 조원우 선생님</dd>
+    </div>
+    <div class="kv-row">
+      <dt>아동부</dt> <dd>송보람, 서지윤, 송영재, 김현정, 조근호, 김경미 선생님</dd>
+    </div>
+  </dl>
+
+  <!-- <div class="mt-6"> -->
+  <!--   <p>디모데 청년부는 매주 금요일 저녁 식사(7시)와 예배(8시)를 함께합니다.<br> -->
+  <!--     <!-1- 🍽️ 식사 – 저녁 7시<br> -1-> -->
+  <!--     <!-1- 🙏 예배 및 목장 모임 – 저녁 8시 -1-> -->
+  <!--   </p> -->
+
+  <!--   <p class="mt-4"> -->
+  <!--   <!-1- <strong>장소:</strong><br> -1-> -->
+  <!--     <!-1- 📍 게인스빌 한인침례교회<br> -1-> -->
+  <!--     🚗 예배 라이드 제공됩니다. -->
+  <!--   </p> -->
+  <!-- </div> -->
+
+  <!-- <hr class="card-sep"> -->
+
+  <!-- <div class="mt-6"> -->
+  <!--  <p><strong>📬 문의:</strong> <a href="mailto:kbcg.timothy@gmail.com" class="contact-link">kbcg.timothy@gmail.com</a><br> -->
+  <!--  <strong>📱 인스타그램:</strong> <a href="https://instagram.com/timothykbcg" target="_blank">@timothykbcg</a></p> -->
+  <!-- </div> -->
+
+</section>
+
+<section id="youthgroup" class="panel pad" aria-labelledby="youthgroup-h">
+  <h3 id="youthgroup-h" class="card-title">중고등부 안내</h3>
+
+  중고등부는 교민 자녀들과 방문 학자 자녀들로 구성되어 있습니다. 방한나 선생님이 주일 및 토요 성경공부를 주관하여 인도하고 있습니다. 학기 중 토요일에는 오후 5시에 교회에 모여 식사를 나누고 성경공부 및 기타 활동 시간 (game & movie night, banquet 등)을 갖습니다.
+  <hr class="card-sep">
+
+매년 마지막 주간에는 KaYFloWeR (Korean American Youth Florida Winter Retreat) 라는 플로리다 중고등부 연합 수양회에 참여합니다. 각지의 많은 청소년들이 모여서 예배하고 교제하는 아름다운 시간이고 많은 영적 도전이 있는 은혜로운 수양회입니다.
+  <hr class="card-sep">
+
+  <dl class="kv">
+    <div class="kv-row">
+      <dt>주일 예배:</dt><dd>오전 10시 (중고등부 예배실)</dd>
+    </div>
+    <div class="kv-row">
+      <dt>토요모임:</dt><dd>오후 5시 (중고등부 예배실)</dd>
+    </div>
+    <div class="kv-row">
+      <dt>지도</dt><dd>방한나 선생님</dd>
+    </div>
+  </dl>
+
+  <hr class="card-sep">
+
+</section>
         <!-- 교회 위치 -->
         <div id="location" class="panel pad" aria-labelledby="location-h">
             <h3 id="location-h">교회 위치</h3>
