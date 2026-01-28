@@ -155,7 +155,7 @@
     
     .greetings-section .wrap {
       display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
+      grid-template-columns: 0.8fr 1.2fr;
       align-items: center;
       gap: 40px;
     }
@@ -323,6 +323,24 @@
   font-size: 12px;
 }
 
+/* Pastor carousel responsive sizing */
+.pastor-carousel {
+  width: 100%;
+  max-width: 520px;
+  aspect-ratio: 5 / 4;   /* keeps same shape as 520x420 */
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  margin: 0 auto;
+}
+
+/* Slightly shorter on small phones */
+@media (max-width: 480px) {
+  .pastor-carousel {
+    aspect-ratio: 4 / 3;
+  }
+}
+
 
 
   </style>
@@ -396,8 +414,10 @@
       <!-- </div> -->
 
       <!-- Pastor image rotator (drop-in DIV only) -->
-      <div id="pastorCarousel"
-           style="width:520px; height:420px; position:relative; overflow:hidden; border-radius:16px;">
+      <!-- <div id="pastorCarousel" -->
+      <!--      style="width:520px; height:420px; position:relative; overflow:hidden; border-radius:16px;"> -->
+      <div id="pastorCarousel" class="pastor-carousel">
+
           <!-- slides get injected here by JS -->
           <div id="pastorSlides" style="width:100%; height:100%; position:relative;"></div>
 
