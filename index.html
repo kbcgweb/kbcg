@@ -155,7 +155,7 @@
     
     .greetings-section .wrap {
       display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
+      grid-template-columns: 0.9fr 1.1fr;
       align-items: center;
       gap: 40px;
     }
@@ -390,9 +390,75 @@
         </div>
     <br>
     <div class="wrap">
-      <div class="pastor-photo">
-        <img src="pastor_sohn.jpg" alt="담임목사 사진" />
+
+      <!-- <div class="pastor-photo"> -->
+      <!--   <img src="pastor_sohn.jpg" alt="담임목사 사진" /> -->
+      <!-- </div> -->
+
+      <!-- Pastor image rotator (drop-in DIV only) -->
+      <div id="pastorCarousel"
+           style="width:520px; height:420px; position:relative; overflow:hidden; border-radius:16px;">
+          <!-- slides get injected here by JS -->
+          <div id="pastorSlides" style="width:100%; height:100%; position:relative;"></div>
+
+          <!-- left/right -->
+          <!-- <button id="pastorPrev" type="button" -->
+          <!--         style="position:absolute; left:8px; top:50%; transform:translateY(-50%); z-index:5;"> -->
+          <!--   ‹ -->
+          <!-- </button> -->
+          <!-- <button id="pastorNext" type="button" -->
+          <!--         style="position:absolute; right:8px; top:50%; transform:translateY(-50%); z-index:5;"> -->
+          <!--   › -->
+          <!-- </button> -->
+
+          <button id="pastorPrev" type="button"
+                                  style="
+                                         position:absolute;
+                                         left:8px;
+                                         top:50%;
+                                         transform:translateY(-50%);
+                                         z-index:5;
+                                         background:transparent;
+                                         border:none;
+                                         color:white;
+                                         font-size:28px;
+                                         cursor:pointer;
+                                         padding:0;
+                                         line-height:1;
+                                         text-shadow:0 1px 4px rgba(0,0,0,0.6);
+                                         ">
+              ‹
+          </button>
+
+          <button id="pastorNext" type="button"
+                                  style="
+                                         position:absolute;
+                                         right:8px;
+                                         top:50%;
+                                         transform:translateY(-50%);
+                                         z-index:5;
+                                         background:transparent;
+                                         border:none;
+                                         color:white;
+                                         font-size:28px;
+                                         cursor:pointer;
+                                         padding:0;
+                                         line-height:1;
+                                         text-shadow:0 1px 4px rgba(0,0,0,0.6);
+                                         ">
+              ›
+          </button>
+
+
+          <!-- dots -->
+          <div id="pastorDots"
+               style="position:absolute; left:50%; bottom:10px; transform:translateX(-50%); display:flex; gap:6px; z-index:5;">
+          </div>
       </div>
+
+
+
+
       <div class="greetings-text">
         <p>
         게인스빌 한인 교회 홈 페이지에 오신 것을 진심으로 환영합니다.
@@ -885,6 +951,111 @@
     }, { root:null, threshold:.15 });
     sections.forEach(id=>{const el=document.getElementById(id); if(el) io.observe(el)});
   </script>
+
+<script>
+(function () {
+  // 1) Put your images here (relative paths)
+  const pastorImages = [
+    "pastor_sohn_2.jpg",
+    "IMG_8130.jpg",
+    "IMG_8131.jpg"
+    // "pastor_2.jpg",
+    // "pastor_3.jpg"
+  ];
+
+  const slidesHost = document.getElementById("pastorSlides");
+  const prevBtn = document.getElementById("pastorPrev");
+  const nextBtn = document.getElementById("pastorNext");
+  const dotsHost = document.getElementById("pastorDots");
+  const carousel = document.getElementById("pastorCarousel");
+
+  if (!slidesHost || !prevBtn || !nextBtn || !dotsHost || !carousel) return;
+  if (!pastorImages.length) return;
+
+  // 2) Build slides (fade swap)
+  const slides = pastorImages.map((src, i) => {
+    const img = document.createElement("img");
+    img.src = src;
+    img.alt = "Pastor photo " + (i + 1);
+    img.style.position = "absolute";
+    img.style.inset = "0";
+    img.style.width = "100%";
+    img.style.height = "100%";
+    img.style.objectFit = "cover";
+    img.style.opacity = "0";
+    img.style.transition = "opacity 450ms ease";
+    img.style.userSelect = "none";
+    img.draggable = false;
+    slidesHost.appendChild(img);
+    return img;
+  });
+
+  // 3) Build dots
+  const dots = pastorImages.map((_, i) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.setAttribute("aria-label", "Go to photo " + (i + 1));
+    b.style.width = "9px";
+    b.style.height = "9px";
+    b.style.borderRadius = "999px";
+    b.style.border = "0";
+    b.style.padding = "0";
+    b.style.cursor = "pointer";
+    b.style.background = "rgba(255,255,255,0.55)";
+    b.style.boxShadow = "0 0 0 1px rgba(0,0,0,0.15)";
+    b.addEventListener("click", () => { goTo(i); resetAuto(); });
+    dotsHost.appendChild(b);
+    return b;
+  });
+
+  // 4) Random start
+  let idx = Math.floor(Math.random() * slides.length);
+
+  function render() {
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.opacity = (i === idx) ? "1" : "0";
+      dots[i].style.background = (i === idx)
+        ? "rgba(255,255,255,0.95)"
+        : "rgba(255,255,255,0.55)";
+    }
+  }
+
+  function goTo(i) {
+    idx = (i + slides.length) % slides.length;
+    render();
+  }
+  function next() { goTo(idx + 1); }
+  function prev() { goTo(idx - 1); }
+
+  prevBtn.addEventListener("click", () => { prev(); resetAuto(); });
+  nextBtn.addEventListener("click", () => { next(); resetAuto(); });
+
+  // 5) Auto-advance every 1–2 seconds
+  let intervalId = null;
+  function startAuto() {
+    stopAuto();
+    const ms = 4000 + Math.floor(Math.random() * 1001); // 1000..2000
+    intervalId = setInterval(next, ms);
+  }
+  function stopAuto() {
+    if (intervalId) clearInterval(intervalId);
+    intervalId = null;
+  }
+  function resetAuto() {
+    startAuto();
+  }
+
+  // Optional: pause on hover
+  carousel.addEventListener("mouseenter", stopAuto);
+  carousel.addEventListener("mouseleave", startAuto);
+
+  // Init
+  render();
+  startAuto();
+})();
+</script>
+
+
 </body>
 </html>
 
