@@ -531,6 +531,80 @@ html {
   html { scroll-padding-top: 120px; } /* 모바일에서 메뉴/패딩 더 크면 늘리기 */
 }
 
+.ministry-photo {
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin: 12px 0 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* Mini ministry carousel */
+.ministry-carousel {
+  width: 100%;
+  max-height: 240px;
+  aspect-ratio: 16 / 9;
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  margin: 12px 0 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  background: #e5e7eb;
+}
+
+.ministry-carousel .slides img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 450ms ease;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.ministry-carousel .navbtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+  padding: 0 8px;
+  line-height: 1;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+}
+
+.ministry-carousel .navbtn.prev { left: 6px; }
+.ministry-carousel .navbtn.next { right: 6px; }
+
+.ministry-carousel .dots {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 5;
+}
+
+.ministry-carousel .dots button {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  background: rgba(255,255,255,0.55);
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.15);
+}
+
+
 
 
 
@@ -725,7 +799,7 @@ html {
               <tr><td>중고등부</td><td>오전 10시</td><td>중고등부 예배실</td></tr>
               <!-- <tr><td>교사 예배</td><td>오전 9:20</td><td>본당</td></tr> -->
               <tr><td>화요 기도회</td><td>오전 10시</td><td>본당</td></tr>
-              <tr><td>화요 성서 학교</td><td>저녁 7:30</td><td>본당</td></tr>
+              <tr><td>화요 성서 학교</td><td>저녁 7:30</td><td>Zoom</td></tr>
               <tr><td>화요 찬양 예배</td><td>매달 둘째 화요일 저녁 7:30</td><td>본당</td></tr>
               <tr><td>디모데 청년부<br>금요 저녁 예배</td><td>식사 (7시) / 예배 (8시) 및<br>목장 모임</td><td>본당</td></tr>
               <!-- <tr><td>중고등부 예배</td><td>오전 10시</td><td>중고등부 예배실</td></tr> -->
@@ -830,6 +904,17 @@ html {
 <section id="timothy" class="panel pad" aria-labelledby="timothy-h">
   <h3 id="timothy-h" class="card-title">디모데 청년부 안내</h3>
 
+  <!-- <img src="timothywide.jpg" -->
+  <!--      alt="디모데 청년부 모임 사진" -->
+  <!--      class="ministry-photo"> -->
+
+<div class="ministry-carousel" data-images="timothywide.jpg" aria-label="디모데 청년부 사진">
+  <div class="slides"></div>
+  <button class="navbtn prev" type="button" aria-label="Previous">‹</button>
+  <button class="navbtn next" type="button" aria-label="Next">›</button>
+  <div class="dots" aria-hidden="true"></div>
+</div>
+
   <dl class="kv">
     <div class="kv-row">
       <dt>회장</dt><dd>신윤찬</dd>
@@ -890,6 +975,17 @@ html {
 <section id="sundayschool" class="panel pad" aria-labelledby="sundayschool-h">
   <h3 id="sundayschool-h" class="card-title">주일학교 안내</h3>
 
+  <!-- <img src="sundayschool.jpeg" -->
+  <!--      alt="주일학교 사진" -->
+  <!--      class="ministry-photo"> -->
+<div class="ministry-carousel" data-images="sundayschool.jpeg,sundayschool2_small.jpeg,sundayschool3_small.jpeg" aria-label="주일학교">
+  <div class="slides"></div>
+  <button class="navbtn prev" type="button" aria-label="Previous">‹</button>
+  <button class="navbtn next" type="button" aria-label="Next">›</button>
+  <div class="dots" aria-hidden="true"></div>
+</div>
+
+
   <dl class="kv">
     <div class="kv-row">
       <dt>부장</dt><dd>오은혜 집사님</dd>
@@ -901,7 +997,7 @@ html {
       <dt>설교</dt><dd>최선영 선생님, 조근호 선생님</dd>
     </div>
     <div class="kv-row">
-      <dt>찬양인도</dt><dd>최해연, 김민혁, 신가영 선생님</dd>
+      <dt>찬양인도</dt><dd>최해연, 김민혁 선생님</dd>
     </div>
     <!-- <div class="kv-row"> -->
     <!--   <dt>유치부</dt> <dd>김하경, 최민진, 허휘, 조원우 선생님</dd> -->
@@ -915,7 +1011,7 @@ html {
   <h3 id="sundayschool-h" class="card-title">분반공부</h3>
   <dl class="kv">
     <div class="kv-row">
-      <dt>유치부</dt> <dd>김하경, 최민진, 허휘, 조원우 선생님</dd>
+      <dt>유치부</dt> <dd>김하경, 최민진  선생님</dd>
     </div>
     <div class="kv-row">
       <dt>아동부</dt> <dd>송보람, 서지윤, 송영재, 김현정, 조근호, 김경미 선생님</dd>
@@ -947,10 +1043,17 @@ html {
 <section id="youthgroup" class="panel pad" aria-labelledby="youthgroup-h">
   <h3 id="youthgroup-h" class="card-title">중고등부 안내</h3>
 
-  중고등부는 교민 자녀들과 방문 학자 자녀들로 구성되어 있습니다. 방한나 선생님이 주일 및 토요 성경공부를 주관하여 인도하고 있습니다. 학기 중 토요일에는 오후 5시에 교회에 모여 식사를 나누고 성경공부 및 기타 활동 시간 (game & movie night, banquet 등)을 갖습니다.
+<!-- <div class="ministry-carousel" data-images="sundayschool.jpeg,sundayschool2.jpeg,sundayschool3.jpeg" aria-label="주일학교"> -->
+<!--   <div class="slides"></div> -->
+<!--   <button class="navbtn prev" type="button" aria-label="Previous">‹</button> -->
+<!--   <button class="navbtn next" type="button" aria-label="Next">›</button> -->
+<!--   <div class="dots" aria-hidden="true"></div> -->
+<!-- </div> -->
+
+  중고등부는 교민 자녀들과 방문 학자 자녀들로 구성되어 있습니다. 방한나 선생님이 주일 및 토요 성경공부를 주관하여 인도하고 있습니다.
   <hr class="card-sep">
 
-매년 마지막 주간에는 KaYFloWeR (Korean American Youth Florida Winter Retreat) 라는 플로리다 중고등부 연합 수양회에 참여합니다. 각지의 많은 청소년들이 모여서 예배하고 교제하는 아름다운 시간이고 많은 영적 도전이 있는 은혜로운 수양회입니다.
+  학기 중 토요일에는 오후 5시에 교회에 모여 식사를 나누고 성경공부 및 기타 활동 시간 (game & movie night, banquet 등)을 갖습니다.
   <hr class="card-sep">
 
   <dl class="kv">
@@ -961,7 +1064,7 @@ html {
       <dt>토요모임:</dt><dd>오후 5시 (중고등부 예배실)</dd>
     </div>
     <div class="kv-row">
-      <dt>지도</dt><dd>방한나 선생님</dd>
+      <dt>지도</dt><dd>Youth Pastor 방한나</dd>
     </div>
   </dl>
 
@@ -1251,8 +1354,8 @@ html {
     "pastor_sohn_2.jpg",
     "IMG_8130.jpg",
     "IMG_8131.jpg",
-    "IMG_8136.jpg",
-    "timothy.jpg"
+    "IMG_8136.jpg"
+    //"timothy.jpg"
     // "pastor_2.jpg",
     // "pastor_3.jpg"
   ];
@@ -1348,6 +1451,89 @@ html {
   startAuto();
 })();
 </script>
+
+<script>
+(function () {
+  function initMiniCarousel(root) {
+    const list = (root.getAttribute("data-images") || "")
+      .split(",")
+      .map(s => s.trim())
+      .filter(Boolean);
+
+    if (!list.length) return;
+
+    const slidesHost = root.querySelector(".slides");
+    const prevBtn = root.querySelector(".prev");
+    const nextBtn = root.querySelector(".next");
+    const dotsHost = root.querySelector(".dots");
+
+    if (!slidesHost || !prevBtn || !nextBtn || !dotsHost) return;
+
+    // Build slides
+    const slides = list.map((src, i) => {
+      const img = document.createElement("img");
+      img.src = src;
+      img.alt = (root.getAttribute("aria-label") || "ministry") + " " + (i + 1);
+      img.draggable = false;
+      slidesHost.appendChild(img);
+      return img;
+    });
+
+    // Build dots
+    const dots = list.map((_, i) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.setAttribute("aria-label", "Go to photo " + (i + 1));
+      b.addEventListener("click", () => { goTo(i); resetAuto(); });
+      dotsHost.appendChild(b);
+      return b;
+    });
+
+    let idx = 0;
+
+    function render() {
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.opacity = (i === idx) ? "1" : "0";
+        dots[i].style.background = (i === idx)
+          ? "rgba(255,255,255,0.95)"
+          : "rgba(255,255,255,0.55)";
+      }
+    }
+
+    function goTo(i) {
+      idx = (i + slides.length) % slides.length;
+      render();
+    }
+    function next() { goTo(idx + 1); }
+    function prev() { goTo(idx - 1); }
+
+    prevBtn.addEventListener("click", () => { prev(); resetAuto(); });
+    nextBtn.addEventListener("click", () => { next(); resetAuto(); });
+
+    // Auto advance (optional)
+    let intervalId = null;
+    function startAuto() {
+      stopAuto();
+      intervalId = setInterval(next, 4500);
+    }
+    function stopAuto() {
+      if (intervalId) clearInterval(intervalId);
+      intervalId = null;
+    }
+    function resetAuto() { startAuto(); }
+
+    // Pause on hover
+    root.addEventListener("mouseenter", stopAuto);
+    root.addEventListener("mouseleave", startAuto);
+
+    render();
+    startAuto();
+  }
+
+  document.querySelectorAll(".ministry-carousel").forEach(initMiniCarousel);
+})();
+</script>
+
 
 
 </body>
