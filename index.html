@@ -45,10 +45,12 @@
                 <div style="text-align: center">
                     <h1>게인스빌 한인 교회에 오신 것을 진심으로 환영합니다</h1>
                     <br>
-                    <span class="badge">2026년 표어 그리스도 안에서 모두가 온전한 사람으로 세워지는 교회</span>
+                    <!-- <span class="badge">2026년 표어 그리스도 안에서 모두가 온전한 사람으로 세워지는 교회</span> -->
+                    <span class="badge" id="motto"></span>
                     <br>
                     <br>
-                    <p class="hero-verse mt-8">“우리는 이 그리스도를 전합니다. 우리는 모든 사람을 그리스도 안에서 온전한 사람으로 세우기 위하여 모든 사람에게 권하며, 지혜를 다하여 모든 사람을 가르칩니다.”<br>(골로새서 1장 28절)</p>
+                    <p class="hero-verse mt-8" id="verse"></p>
+                    <p class="hero-verse mt-8" id="cite"></p>
                 </div>
                 <br>
                 <div class="wrap">
@@ -441,10 +443,15 @@
                         <p class="fine mt-16">* 새 예배 설교는 매주 주일 이후 업데이트됩니다.</p>
                     </div>
                     <article class="card">
-                        <h3>그리스도 안에서 (3) 성령의 활력을 따라 수고하며</h3>
-                        <p class="meta">설교: 손민석 목사</p>
+                        <h3 id="sermon-title"></h3>
+                        <p class="meta" id="sermon-pastor-name"></p>
                         <div style="position:relative;padding-top:56.25%">
-                            <iframe title="YouTube sermon" src="https://www.youtube.com/embed/BskFdWqitho?si=OS-HFYMhMjbHP5qv" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:12px"></iframe>
+                            <iframe id="sermon-video"
+                                    title="YouTube sermon"
+                                    allow="accelerometer; clipboard-write;
+                                           encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen
+                                    style="position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:12px"></iframe>
                         </div>
                     </article>
                 </div>

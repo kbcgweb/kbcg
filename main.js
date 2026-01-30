@@ -195,3 +195,15 @@ document.querySelectorAll('.nav-menu a').forEach(link => {
 
     document.querySelectorAll(".ministry-carousel").forEach(initMiniCarousel);
 })();
+
+fetch("content/texts.json")
+  .then(r => r.json())
+  .then(data => {
+    document.getElementById("motto").textContent = data.motto;
+    document.getElementById("verse").textContent = data.verse;
+    document.getElementById("cite").textContent = data.cite;
+    document.getElementById("sermon-title").textContent = data.sermon_title;
+    document.getElementById("sermon-pastor-name").textContent = data.sermon_pastor_name;
+    document.getElementById("sermon-video").src = data.youtube_embed;
+  });
+
